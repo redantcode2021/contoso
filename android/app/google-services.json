@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "869285981445",
+    "project_id": "contoso-commerce",
+    "storage_bucket": "contoso-commerce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869285981445:android:f53eef72cd422971921b6c",
+        "android_client_info": {
+          "package_name": "com.example.contoso"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869285981445-unciugo861ono4q3h1aagfteo1ckj5qa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwBtPsX3Qlo02nARwHXbDPTpRd60GDDIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869285981445-unciugo861ono4q3h1aagfteo1ckj5qa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
