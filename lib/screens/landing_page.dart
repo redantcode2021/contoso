@@ -1,8 +1,10 @@
+import 'package:contoso/utilities/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
+import 'login_page.dart';
 
 class LandingPage extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
@@ -24,6 +26,7 @@ class LandingPage extends StatelessWidget {
         // Connection Initialized - Firebase App is running
         if (snapshot.connectionState == ConnectionState.done) {
           // StreamBuilder can check the login state live
+          Log.i("Connection State is done");
 
           return StreamBuilder(
               stream: FirebaseAuth.instance.authStateChanges(),
@@ -42,14 +45,12 @@ class LandingPage extends StatelessWidget {
                 if (streamSnapshot.connectionState == ConnectionState.active) {
                   // Get the user
                   User _user = streamSnapshot.data;
-
+                  Log.i("Connection State is active");
                   // If the user is null, we're not logged in
                   if (_user == null) {
                     // user not logged in, head to login
-                    // TODO: Create LoginPage
-                    return Scaffold(
-                      body: Center(child: Text("Login Page")),
-                    ); // LoginPage();
+                    LoginPage();
+                    Log.i("Login Page has been executed");
                   } else {
                     // The user is logged in, head to homepage
                     // TODO: Create Homepage
@@ -59,6 +60,7 @@ class LandingPage extends StatelessWidget {
                   }
                 }
                 // Checking the auth state - Loading
+                Log.i("Checking auth");
                 return Scaffold(
                   body: Center(
                     child: Text(
@@ -70,6 +72,7 @@ class LandingPage extends StatelessWidget {
               });
         }
         // Connecting to Firebase - Loading
+        Log.i("Firebase Loading");
         return Scaffold(
           body: Center(
             child: Text(
