@@ -1,3 +1,4 @@
+import 'package:contoso/screens/home_page.dart';
 import 'package:contoso/utilities/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,9 +26,8 @@ class LandingPage extends StatelessWidget {
 
         // Connection Initialized - Firebase App is running
         if (snapshot.connectionState == ConnectionState.done) {
-          // StreamBuilder can check the login state live
           Log.i("Connection State is done");
-
+          // StreamBuilder can check the login state live
           return StreamBuilder(
               stream: FirebaseAuth.instance.authStateChanges(),
               builder: (context, streamSnapshot) {
@@ -49,18 +49,16 @@ class LandingPage extends StatelessWidget {
                   // If the user is null, we're not logged in
                   if (_user == null) {
                     // user not logged in, head to login
-                    LoginPage();
-                    Log.i("Login Page has been executed");
+                    Log.i("Go to Login Page");
+                    return LoginPage();
                   } else {
                     // The user is logged in, head to homepage
-                    // TODO: Create Homepage
-                    return Scaffold(
-                      body: Center(child: Text("Home Page")),
-                    );
+                    Log.i("Go to Home Page");
+                    return HomePage();
                   }
                 }
                 // Checking the auth state - Loading
-                Log.i("Checking auth");
+                //Log.i("Checking auth");
                 return Scaffold(
                   body: Center(
                     child: Text(
